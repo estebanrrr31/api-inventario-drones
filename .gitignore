@@ -1,0 +1,20 @@
+# --- SEGURIDAD (Archivos con llaves o secretos) ---
+.env
+config.json
+credentials
+*.pem
+
+# --- ARCHIVOS DE PRUEBA LOCALES ---
+input.json
+get_input.json
+edit_input.json
+delete_input.json
+response*.json
+view_response.json
+
+# --- ARCHIVOS TEMPORALES DE DESPLIEGUE ---
+funcion.zip
+
+# --- PYTHON ---
+__pycache__/
+*.py[cod]
