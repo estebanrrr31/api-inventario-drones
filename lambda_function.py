@@ -20,15 +20,15 @@ def lambda_handler(event, context):
     headers = {"Content-Type": "application/json"}
 
     try:
-        # --- LEER (GET) ---
+        # --- (GET) ---
         if route_key == "GET /productos":
             scan_result = table.scan()
             response_body = scan_result.get('Items', [])
 
-        # --- CREAR O EDITAR COMPLETO (POST) ---
+        # ---(POST) ---
         elif route_key == "POST /productos":
             body = json.loads(event.get('body', '{}'))
-            table.put_item(Item=body) # Guarda o reemplaza por completo
+            table.put_item(Item=body)
             response_body = f"Éxito: Producto {body['id_producto']} procesado."
 
         # --- EDITAR PARCIAL (PUT) ---
@@ -42,7 +42,7 @@ def lambda_handler(event, context):
             )
             response_body = f"Éxito: Producto {body['id_producto']} actualizado."
 
-        # --- ELIMINAR (DELETE) ---
+        # --- (DELETE)
         elif route_key == "DELETE /productos":
             body = json.loads(event.get('body', '{}'))
             table.delete_item(Key={'id_producto': body['id_producto']})
