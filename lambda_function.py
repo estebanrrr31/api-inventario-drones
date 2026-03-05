@@ -11,7 +11,7 @@ class DecimalEncoder(json.JSONEncoder):
         return super(DecimalEncoder, self).default(obj)
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('TablaInventario') # CLI
+table = dynamodb.Table('TablaInventario') 
 
 def lambda_handler(event, context):
     route_key = event.get('routeKey', '')
